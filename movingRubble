@@ -1,0 +1,8 @@
+/*
+• when player is in x area of z object:
+    - dialogue/button/image popup saying to move control in specific manner
+
+• when player is in x area of z object AND doing y controller movement:
+    - move object
+
+*/
