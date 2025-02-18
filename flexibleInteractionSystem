@@ -1,0 +1,26 @@
+// using https://www.youtube.com/watch?v=K06lVKiY-sY
+// I HAVEN'T CHANGED IT FROM THE YOUTUBE CODE YET
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Interactor : MonoBehaviour
+{
+  public Transform InteractorSource;
+  public float InteractRange;
+
+  void Start() {
+    
+  }
+
+  void Update() {
+    if(Input.GetKeyDown(KeyCode.E)) {
+      Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+      if(Physics.Raycast(r, out RaycastHit hitInfo, InteractRange)) {
+        if(hitInfo.collider.gameObject.TryGetComponent(out Interactable interactObj)) {
+          interactObj.Interact();
+        }
+      }
+  }
+}
