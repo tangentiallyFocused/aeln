@@ -1,0 +1,24 @@
+var slowSpeed: float = 5;
+var slowG: float = 5;
+var regularSpeed: float = 8;
+var regularG: float = 10;
+
+function OnTriggerEnter(other: Collider){
+  var chMotor: CharacterMotor = other.GetComponent(CharacterMotor);
+  if (chMotor){ // make sure CharacterMotor exists
+    chMotor.movement.maxForwardSpeed = slowSpeed;
+    chMotor.movement.maxSidewaysSpeed = slowSpeed;
+    chMotor.movement.maxBackwardsSpeed = slowSpeed;
+    chMotor.movement.gravity = slowG;
+  }
+}
+
+function OnTriggerExit(other: Collider){
+  var chMotor: CharacterMotor = other.GetComponent(CharacterMotor);
+  if (chMotor){
+    chMotor.movement.maxForwardSpeed = regularSpeed;
+    chMotor.movement.maxSidewaysSpeed = regularSpeed;
+    chMotor.movement.maxBackwardsSpeed = regularSpeed;
+    chMotor.movement.gravity = regularG;
+  }
+}
