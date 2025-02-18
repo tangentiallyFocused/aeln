@@ -1,0 +1,10 @@
+var changeSpeedTo : float;
+
+function OnTriggerEnter ( other : Collider){
+
+    if(other.gameObject.name == "First Person Controller"){  //"First Person Controller" is the default name of the FPS controller after you add it to the scene
+        other.gameObject.GetComponent(FPSWalker).speed = changeSpeedTo; //access the speed variable in the script called "FPSWalker" and changes it to the value you want
+    }
+}
+
+//You can use any other variable instead of speed to access it and change it.
