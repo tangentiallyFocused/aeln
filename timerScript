@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.Events;
+
+public class Timer : MonoBehaviour
+{
+    //float for keeping track of time
+    public float timeLeft = 120.0f;
+    //my text component 
+    public TMP_Text timerText;
+    public UnityEvent ActionsAtTheEndOfTimer;
+
+    // Update is called once per frame
+    void Update()
+    {
+        //change (deincrement) the value of my float variable over time
+        timeLeft -= Time.deltaTime;
+        //update my text component so it shows the new value of my time variable
+        timerText.text = "Time Left: " + Mathf.RoundToInt(timeLeft);
+        if (timeLeft < 0)
+        {
+            ActionsAtTheEndOfTimer.Invoke();
+        }
+    }
